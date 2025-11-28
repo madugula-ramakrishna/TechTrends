@@ -11,3 +11,5 @@ To run this application there are 2 steps required:
 
 Info
 Change the running port on app.py from 3111 to 8095. Made a runLocally.sh shell script to run in plain vanilla python. A /healthz and /metrics endpoint added as per expectations. Logging added as per expectations. Additionally, a new Health&Metrics page added (monitor.html) to show the health and metrics inside the application.
+
+Pushing the docker image to docker hub using the secrets.
