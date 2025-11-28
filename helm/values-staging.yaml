@@ -1,0 +1,32 @@
+namespace: staging
+
+service:
+  port: 8091
+  targetPort: 8095
+  protocol: TCP
+  type: ClusterIP
+
+image:
+  repository: madugula-ramakrishna/TechTrends
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 3
+
+resources:
+  requests:
+    memory: 90Mi
+    cpu: 300m
+  limits:
+    memory: 128Mi
+    cpu: 500m
+
+containerPort: 8095
+
+livenessProbe:
+  path: /healthz
+  port: 8095
+
+readinessProbe:
+  path: /healthz
+  port: 8095
