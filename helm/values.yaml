@@ -1,5 +1,5 @@
 image:
-  repository: madugula-ramakrishna/TechTrends
+  repository: madugular/TechTrends
   tag: latest
   pullPolicy: IfNotPresent
 
