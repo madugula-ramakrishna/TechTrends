@@ -2,7 +2,7 @@
 FROM python:3.8
 
 #Label it
-LABEL maintainer="Srirup Banerjee"
+LABEL maintainer="Ramakrishna Madugula"
 
 # Set the working directory inside the container
 WORKDIR /app
