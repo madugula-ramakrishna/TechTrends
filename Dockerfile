@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./techtrends .
 
 # Expose the application port
-EXPOSE 8095
+EXPOSE 3111
 
 # Initialize the database with pre-defined posts
 RUN python init_db.py
