@@ -7,7 +7,7 @@ service:
   type: ClusterIP
 
 image:
-  repository: madugular/TechTrends
+  repository: madugular/techtrends
   tag: latest
   pullPolicy: IfNotPresent
 
