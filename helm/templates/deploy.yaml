@@ -12,21 +12,7 @@ spec:
     metadata:
       labels:
         app: techtrends
-    spec:
-      imagePullSecrets:
-        - name: ramasecret      
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: name
-                operator: In
-                values:
-                - dev-srv02
-                - pn3-srv02
-                - pn2-srv02
-                - pn1-srv02       
+    spec:   
       containers:
       - name: techtrends
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
