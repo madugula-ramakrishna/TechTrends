@@ -1,8 +1,8 @@
 namespace: sandbox
 
 service:
-  port: 8091
-  targetPort: 8095
+  port: 7112
+  targetPort: 7111
   protocol: TCP
   type: ClusterIP
 
@@ -11,7 +11,7 @@ image:
   tag: latest
   pullPolicy: Always
 
-replicaCount: 5
+replicaCount: 3
 
 resources:
   requests:
@@ -21,12 +21,12 @@ resources:
     memory: 256Mi
     cpu: 500m
 
-containerPort: 8095
+containerPort: 4111
 
 livenessProbe:
   path: /healthz
-  port: 8095
+  port: 4111
 
 readinessProbe:
   path: /healthz
-  port: 8095
+  port: 4111
