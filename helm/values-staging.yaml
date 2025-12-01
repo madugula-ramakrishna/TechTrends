@@ -1,8 +1,8 @@
 namespace: staging
 
 service:
-  port: 5112
-  targetPort: 5111
+  port: 3111
+  targetPort: 3111
   protocol: TCP
   type: NodePort
 
