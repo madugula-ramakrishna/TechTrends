@@ -2,9 +2,9 @@ namespace: sandbox
 
 service:
   port: 7111
-  targetPort: 7111
+  targetPort: 3111
   protocol: TCP
-  type: ClusterIP
+  type: NodePort
 
 image:
   repository: madugular/techtrends
@@ -21,12 +21,12 @@ resources:
     memory: 256Mi
     cpu: 500m
 
-containerPort: 4111
+containerPort: 3111
 
 livenessProbe:
   path: /healthz
-  port: 4111
+  port: 3111
 
 readinessProbe:
   path: /healthz
-  port: 4111
+  port: 3111
