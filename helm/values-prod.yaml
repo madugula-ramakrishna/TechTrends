@@ -1,14 +1,14 @@
 namespace: sandbox
 
 service:
-  port: 7112
+  port: 7111
   targetPort: 7111
   protocol: TCP
   type: ClusterIP
 
 image:
   repository: madugular/techtrends
-  tag: latest
+  tag: v2
   pullPolicy: Always
 
 replicaCount: 3

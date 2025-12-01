@@ -8,7 +8,7 @@ service:
 
 image:
   repository: madugular/techtrends
-  tag: latest
+  tag: v2
   pullPolicy: IfNotPresent
 
 replicaCount: 2

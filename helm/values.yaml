@@ -1,6 +1,6 @@
 image:
   repository: madugular/techtrends
-  tag: latest
+  tag: v2
   pullPolicy: IfNotPresent
 
 replicaCount: 1
@@ -13,12 +13,12 @@ resources:
     memory: 128Mi
     cpu: 500m
 
-containerPort: 8095
+containerPort: 3111
 
 livenessProbe:
   path: /healthz
-  port: 8095
+  port: 3111
 
 readinessProbe:
   path: /healthz
-  port: 8095
+  port: 3111
