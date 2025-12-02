@@ -11,137 +11,59 @@ mysql                     latest    91447968e669   2 months ago     1.26GB
 httpd                     latest    ca375ab8ef2c   3 months ago     175MB
 
 ## Docker commands used to run the application
-docker run --name techtrendscontainer --restart always -d -p 8091:8095 techtrends:latest
+docker run --name techtrendscontainer --restart always -d -p 3111:3111 techtrends:latest
 
-C:\Users\m95851\TechTrends>docker ps
-CONTAINER ID   IMAGE               COMMAND           CREATED          STATUS          PORTS                                         NAMES
-6e4f5c799bf4   techtrends:latest   "python app.py"   25 minutes ago   Up 25 minutes   0.0.0.0:8091->8095/tcp, [::]:8091->8095/tcp   techtrendscontainer
+m95851@DWP-TK6FL7hihfC MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE               COMMAND           CREATED        STATUS        PORTS                                         NAMES
+cf626a137855   techtrends:latest   "python app.py"   39 hours ago   Up 39 hours   0.0.0.0:3111->3111/tcp, [::]:3111->3111/tcp   techtrendscontainer
+
+
 
 ## Docker commands used to get the application logs
-docker logs -n 100 techtrendscontainer
-C:\Users\m95851\TechTrends>docker logs -n 100 techtrendscontainer
+m95851@DWP-TK6FL7hihfC MINGW64 ~
+$ docker logs cf626a137855
  * Serving Flask app 'app' (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-WARNING:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on all addresses.
+WARNING:werkzeug: 2025-11-30 21:30:04,053 ,  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on http://172.17.0.2:8095/ (Press CTRL+C to quit)
+INFO:werkzeug: 2025-11-30 21:30:04,054 ,  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:werkzeug: 2025-11-30 21:30:21,828 , 172.17.0.1 - - [30/Nov/2025 21:30:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:30:21,860 , 172.17.0.1 - - [30/Nov/2025 21:30:21] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:30:22,006 , 172.17.0.1 - - [30/Nov/2025 21:30:22] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app: 2025-11-30 21:30:33,290 , Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug: 2025-11-30 21:30:33,318 , 172.17.0.1 - - [30/Nov/2025 21:30:33] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:30:33,339 , 172.17.0.1 - - [30/Nov/2025 21:30:33] "GET /static/css/main.css HTTP/1.1" 304 -
+ERROR:app: 2025-11-30 21:30:38,103 , Post not found
+INFO:werkzeug: 2025-11-30 21:30:38,108 , 172.17.0.1 - - [30/Nov/2025 21:30:38] "GET /8 HTTP/1.1" 404 -
+INFO:werkzeug: 2025-11-30 21:30:38,135 , 172.17.0.1 - - [30/Nov/2025 21:30:38] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug: 2025-11-30 21:31:46,719 , 172.17.0.1 - - [30/Nov/2025 21:31:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:31:46,752 , 172.17.0.1 - - [30/Nov/2025 21:31:46] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug: 2025-11-30 21:31:50,053 , 172.17.0.1 - - [30/Nov/2025 21:31:50] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:31:50,084 , 172.17.0.1 - - [30/Nov/2025 21:31:50] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app: 2025-11-30 21:32:04,069 , Saving the new post with title Ramakrishna
+INFO:werkzeug: 2025-11-30 21:32:04,075 , 172.17.0.1 - - [30/Nov/2025 21:32:04] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug: 2025-11-30 21:32:04,084 , 172.17.0.1 - - [30/Nov/2025 21:32:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:32:04,111 , 172.17.0.1 - - [30/Nov/2025 21:32:04] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug: 2025-11-30 21:57:00,776 , 172.17.0.1 - - [30/Nov/2025 21:57:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:57:00,848 , 172.17.0.1 - - [30/Nov/2025 21:57:00] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug: 2025-11-30 21:57:01,000 , 172.17.0.1 - - [30/Nov/2025 21:57:01] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: 2025-12-02 12:14:00,003 , 172.17.0.1 - - [02/Dec/2025 12:14:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-12-02 12:14:00,062 , 172.17.0.1 - - [02/Dec/2025 12:14:00] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:app: 2025-12-02 12:14:46,337 , About page accessed
+INFO:werkzeug: 2025-12-02 12:14:46,369 , 172.17.0.1 - - [02/Dec/2025 12:14:46] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug: 2025-12-02 12:14:46,390 , 172.17.0.1 - - [02/Dec/2025 12:14:46] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug: 2025-12-02 12:15:14,042 , 172.17.0.1 - - [02/Dec/2025 12:15:14] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: 2025-12-02 12:15:14,062 , 172.17.0.1 - - [02/Dec/2025 12:15:14] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app: 2025-12-02 12:15:16,602 , Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug: 2025-12-02 12:15:16,603 , 172.17.0.1 - - [02/Dec/2025 12:15:16] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug: 2025-12-02 12:15:16,623 , 172.17.0.1 - - [02/Dec/2025 12:15:16] "GET /static/css/main.css HTTP/1.1" 304 -
+ERROR:app: 2025-12-02 12:15:22,549 , Post not found
+INFO:werkzeug: 2025-12-02 12:15:22,550 , 172.17.0.1 - - [02/Dec/2025 12:15:22] "GET /10 HTTP/1.1" 404 -
+INFO:werkzeug: 2025-12-02 12:15:22,573 , 172.17.0.1 - - [02/Dec/2025 12:15:22] "GET /static/css/main.css HTTP/1.1" 304 -
 
-C:\Users\m95851\TechTrends>docker logs -n 100 techtrendscontainer
- * Serving Flask app 'app' (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-WARNING:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on http://172.17.0.2:8095/ (Press CTRL+C to quit)
-INFO:werkzeug: 2025-11-27 17:58:27,861 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:27,903 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:28,118 , 172.17.0.1 - - [27/Nov/2025 17:58:28] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:app: 2025-11-27 17:58:41,441 , About page accessed
-INFO:werkzeug: 2025-11-27 17:58:41,443 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:41,465 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 17:59:37,986 , 172.17.0.1 - - [27/Nov/2025 17:59:37] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:59:38,013 , 172.17.0.1 - - [27/Nov/2025 17:59:38] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:00:14,244 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:00:14,342 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:02,923 , Saving the new post with title TechTrends
-INFO:werkzeug: 2025-11-27 18:01:02,955 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug: 2025-11-27 18:01:02,972 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:03,040 , 172.17.0.1 - - [27/Nov/2025 18:01:03] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:09,553 , Article TechTrends retrieved!
-INFO:werkzeug: 2025-11-27 18:01:09,559 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /7 HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:09,578 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:41,560 , About page accessed
-INFO:werkzeug: 2025-11-27 18:01:41,561 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:41,581 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:01:44,045 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:44,065 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET /static/css/main.css HTTP/1.1" 304 -
-
-
-## Logs from the container running the TechTrends application
-C:\Users\m95851\TechTrends>docker logs -n 100 techtrendscontainer
- * Serving Flask app 'app' (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-WARNING:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on http://172.17.0.2:8095/ (Press CTRL+C to quit)
-
-C:\Users\m95851\TechTrends>docker logs -n 100 techtrendscontainer
- * Serving Flask app 'app' (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-WARNING:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on http://172.17.0.2:8095/ (Press CTRL+C to quit)
-INFO:werkzeug: 2025-11-27 17:58:27,861 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:27,903 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:28,118 , 172.17.0.1 - - [27/Nov/2025 17:58:28] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:app: 2025-11-27 17:58:41,441 , About page accessed
-INFO:werkzeug: 2025-11-27 17:58:41,443 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:41,465 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 17:59:37,986 , 172.17.0.1 - - [27/Nov/2025 17:59:37] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:59:38,013 , 172.17.0.1 - - [27/Nov/2025 17:59:38] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:00:14,244 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:00:14,342 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:02,923 , Saving the new post with title TechTrends
-INFO:werkzeug: 2025-11-27 18:01:02,955 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug: 2025-11-27 18:01:02,972 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:03,040 , 172.17.0.1 - - [27/Nov/2025 18:01:03] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:09,553 , Article TechTrends retrieved!
-INFO:werkzeug: 2025-11-27 18:01:09,559 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /7 HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:09,578 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:41,560 , About page accessed
-INFO:werkzeug: 2025-11-27 18:01:41,561 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:41,581 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:01:44,045 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:44,065 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET /static/css/main.css HTTP/1.1" 304 -
-
-
-###Error message logs
-
-* Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-WARNING:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: 2025-11-27 17:48:32,337 ,  * Running on http://172.17.0.2:8095/ (Press CTRL+C to quit)
-INFO:werkzeug: 2025-11-27 17:58:27,861 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:27,903 , 172.17.0.1 - - [27/Nov/2025 17:58:27] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:28,118 , 172.17.0.1 - - [27/Nov/2025 17:58:28] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:app: 2025-11-27 17:58:41,441 , About page accessed
-INFO:werkzeug: 2025-11-27 17:58:41,443 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:58:41,465 , 172.17.0.1 - - [27/Nov/2025 17:58:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 17:59:37,986 , 172.17.0.1 - - [27/Nov/2025 17:59:37] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 17:59:38,013 , 172.17.0.1 - - [27/Nov/2025 17:59:38] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:00:14,244 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:00:14,342 , 172.17.0.1 - - [27/Nov/2025 18:00:14] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:02,923 , Saving the new post with title TechTrends
-INFO:werkzeug: 2025-11-27 18:01:02,955 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug: 2025-11-27 18:01:02,972 , 172.17.0.1 - - [27/Nov/2025 18:01:02] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:03,040 , 172.17.0.1 - - [27/Nov/2025 18:01:03] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:09,553 , Article TechTrends retrieved!
-INFO:werkzeug: 2025-11-27 18:01:09,559 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /7 HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:09,578 , 172.17.0.1 - - [27/Nov/2025 18:01:09] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:01:41,560 , About page accessed
-INFO:werkzeug: 2025-11-27 18:01:41,561 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:41,581 , 172.17.0.1 - - [27/Nov/2025 18:01:41] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:01:44,045 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET / HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:01:44,065 , 172.17.0.1 - - [27/Nov/2025 18:01:44] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app: 2025-11-27 18:15:51,289 , About page accessed
-INFO:werkzeug: 2025-11-27 18:15:51,291 , 172.17.0.1 - - [27/Nov/2025 18:15:51] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug: 2025-11-27 18:15:51,331 , 172.17.0.1 - - [27/Nov/2025 18:15:51] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug: 2025-11-27 18:23:12,228 , 172.17.0.1 - - [27/Nov/2025 18:23:12] "GET /abouttech HTTP/1.1" 404 -
-INFO:werkzeug: 2025-11-27 18:23:40,386 , 172.17.0.1 - - [27/Nov/2025 18:23:40] "GET /Techtrends HTTP/1.1" 404 -
-INFO:werkzeug: 2025-11-27 18:23:42,913 , 172.17.0.1 - - [27/Nov/2025 18:23:42] "GET /Techtrends HTTP/1.1" 404 -
-
-C:\Users\m95851\TechTrends>
+m95851@DWP-TK6FL7hihfC MINGW64 ~
+$
